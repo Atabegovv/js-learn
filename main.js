@@ -1113,3 +1113,438 @@ console.log(personalMovieDB); */
 
 
 
+
+
+// let user = {
+//   name: 'men',
+//   age: 24,
+//   city: 'moskow'
+// };
+
+// const {age, ...other} = user;
+// console.log(age);
+// console.log(other);
+
+
+// const addInfo = {
+//   skills: ['coding', 'cooking'],
+//   edu: 'vspy',
+//   lastName: 'biz'
+// };
+
+// user.edu = addInfo.edu;
+// console.log(user);
+// user.skills = addInfo.skills;
+// console.log(user);
+
+/* or */
+
+// user = {
+//   ...user,
+//   ...addInfo
+// }
+// console.log(user);
+
+
+
+
+
+
+// const cities = {
+//   msk: {
+//     temp: {
+//       celsius: 25,
+//       kel: 40
+//     }
+//   },
+//   stb: {
+
+//   },
+//   vor: {
+//     temp: {
+//       celsius: 35,
+//       kel: 50
+//     }
+//   }
+// };
+
+// let city = 'msk';
+// console.log( cities[city].temp.celsius);
+
+// city = 'vor';
+// if(cities[city].temp && cities[city].temp.celsius){
+//   console.log( cities[city].temp.celsius);
+// } /* === */
+// if(cities[city].temp != undefined && cities[city].temp.celsius != undefined){
+//   console.log( cities[city].temp.celsius);
+// }
+
+// /* or */
+// city = 'stb';
+// console.log( cities[city]?.temp?.celsius );
+
+
+
+
+
+
+/* uprazhneniya */
+
+// const warehouse = {
+//   goods: [],
+//   getGoodById: function (id){
+//     return this.goods.find(g => g.id == id);
+//   },
+//   addGood: function (good){
+//     const existedGood = this.getGoodById(good.id);
+//     if(existedGood){
+//       console.log('etot tovar uzhe ect v sklade');
+//       return;
+//     }
+//     this.goods.push(good);
+//   },
+//   goodWeightKG: function (){
+//     return this.goods.reduce((acc, el) => acc += el.weight?.kg ? el.weight.kg : 0, 0);
+//   },
+// };
+
+// // /* goods */
+// const car = {
+//   id: 1,
+//   weight: {
+//     kg: 1000
+//   },
+//   brend: 'ford'
+// };
+
+// const chair = {
+//   id: 2,
+//   weight: {
+//     kg: 2
+//   }
+// }
+
+// const paper = {
+//   id: 3,
+//   color: 'red'
+// }
+
+// warehouse.addGood(car);
+// console.log(warehouse.goods);
+// warehouse.addGood(car);
+// warehouse.addGood(paper);
+// warehouse.addGood(chair);
+// console.log(warehouse.goods);
+
+// console.log(warehouse.goodWeightKG());
+// console.log(warehouse.getGoodById(1));
+
+
+
+
+
+/* primaty and objects */
+
+// let userName1 = 'Anton';
+// let userName2 = userName1;
+// userName1 = 'New';
+// console.log(userName1);
+// console.log(userName2);
+
+// const user1 = {
+//   name: 'Anton'
+// };
+// const user2  = user1;
+// user1.name = 'New';
+// console.log(user1.name);
+// console.log(user2.name);
+
+
+
+
+
+// const user = {
+//   name: 'Anton',
+//   age: 24,
+//   roles: ['admin']
+// };
+
+// const newUser = {
+//   ...user
+// };
+
+// newUser.name = 'Myrat';
+// newUser.roles.push('coder');
+
+// console.log(user);
+// console.log(newUser);
+
+
+
+
+
+
+
+/* this */
+
+// console.log(this);
+
+// function sum (num1, num2){
+//   console.log(this);
+//   return num1 + num2;
+// }
+// console.log(sum(3,4));
+
+
+// const sum2 = (num1, num2) => {
+//   console.log(this);
+//   return num1 + num2;
+// };
+// console.log(sum2(2, 3));
+
+
+
+
+
+// const user = {
+//   name: 'Anton',
+//   lastName: 'Prost',
+//   fullName: function() {
+//     console.log(this);
+//     return `${this.name} ${this.lastName}`;
+//   }
+// };
+// console.log(user.fullName());
+
+// const user2 = {
+//   name: 'Albert',
+//   lastName: 'Mick'
+// };
+// user2.fullName = user.fullName;
+// console.log(user2.fullName());
+
+
+
+
+
+
+// const user = {
+//   firstName: 'Anton',
+//   lastName: 'Prost',
+//   age: 24,
+
+//   getFullName: function() {
+//     console.log(`${this.firstName} ${this.lastName}`);
+
+//     const canDrink = () => {
+//       if (this.age >= 18) {
+//         console.log(`he can drink !`);
+//       } else {
+//         console.log(`he don't drink`);
+//       }
+//     }
+//     canDrink();
+//   }, 
+
+//   getFullNameArrow: () =>{
+//     console.log(`${this.firstName} ${this.lastName}`);
+//   },
+
+
+// };
+
+// user.getFullName();
+// user.getFullNameArrow();
+
+
+
+
+
+// /* arguments */
+
+// function sum(n1, n2){
+//   console.log(this);
+//   console.log(arguments);
+//   console.log(arguments[2]);
+//   return n1 + n2;
+// };
+// console.log(sum(23,4,6,5));
+
+// const sumArrow = (n1, n2) =>{
+//   console.log(this);
+//   console.log(arguments);
+//   console.log(arguments[2]);  // у стреличных функции аргументы не опредилены
+//   return n1 + n2;
+// }
+// console.log(sumArrow(23,4,6,5));
+
+
+
+
+
+
+
+
+///* traning  */
+
+// const company = {
+//   name: 'OOO Agro',
+//   sotrudnik: [
+//     {
+//       name: 'Anton',
+//       getName: function() {
+//         return this.name;
+//       }
+//     }
+//   ],
+//   ceo: {
+//     name: 'Vlad Viktorich',
+//     getName: function() {
+//       return this.name;
+//     }
+//   }
+// };
+
+// console.log(company.name);
+// console.log(company.sotrudnik.map(sotrudnik => sotrudnik.getName()));
+// console.log(company.ceo.getName());
+
+
+
+
+
+
+// const a = 1;
+
+// const b = {
+//   a, // a: a,
+
+//   getA: function(){
+//     return a;
+//   },
+
+//   getAltA(){
+//     return a;
+//   }
+// };
+
+// console.log(b.a);
+// console.log(b.getA());
+// console.log(b.getAltA());
+
+
+
+
+
+
+
+
+
+
+// const audi = {
+//   breand: 'Audi',
+//   model: 'A3',
+//   year: 2020,
+//   damages: [],
+//   addDamage(part, rate){
+//     console.log(`u ${this.breand}, model ${this.model}, year ${this.year} add damage: ${part},  ${rate}`);
+//     this.damages.push({
+//       part,
+//       rate
+//     });
+//   }
+// };
+// audi.addDamage('kapot', 3);
+
+
+// const bmw = {
+//   breand: 'BMW',
+//   model: 'm5',
+//   year: 2022,
+//   damages: []
+// };
+
+// bmw.addDamage = audi.addDamage;
+// bmw.addDamage('fara', 7);
+
+// /* call() and apply() */
+// const addDamageFn = audi.addDamage;
+
+// addDamageFn.call(audi, 'krysha', 10);
+// addDamageFn.call(bmw, 'krylya', 5);
+
+// addDamageFn.apply(audi, ['koleso', 2]);
+// addDamageFn.apply(bmw, ['disk', 4]);
+
+
+
+
+/* bind() */
+
+// const audi = {
+//   breand: 'Audi',
+//   model: 'A3',
+//   year: 2020,
+//   damages: [],
+// };
+
+// const carManipulation = {
+  
+//   addDamage(part, rate){
+//     this.damages.push({ part, rate });
+//     console.log(`u ${this.breand}, model ${this.model}, year ${this.year} add damage: ${part},  ${rate}`);
+//   }
+
+// };
+
+// const addDamageAudi = carManipulation.addDamage.bind(audi);
+// addDamageAudi('koleso', 6);
+// console.log(audi);
+
+// const addDamageAudiRoof = carManipulation.addDamage.bind(audi, 'fary');
+// addDamageAudiRoof(7);
+// addDamageAudiRoof(9);
+// console.log(audi);
+
+
+
+
+
+
+
+/* uprazhneniya */
+
+//function removePassword(reset) {
+//  if (reset) {
+//    this.password = undefined;
+//  } else {
+//    this.password = '1';
+//  }
+//};
+
+//const user = {
+//  login: 'men',
+//  password: 'admin'
+//};
+
+
+//const removeUserPassword = removePassword.bind(user, true);
+//removeUserPassword();
+//console.log(user);
+
+
+
+
+//// /* IIFO */  povtonyi vyzov newozmozhen
+
+//function init(){
+//  console.log('start');
+//}
+//init();
+//init();
+
+//(function(){
+//  console.log('start IIFO');
+//})();
+
+
